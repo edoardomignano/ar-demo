@@ -1,1 +1,53 @@
-AR-File/index.html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>AR Produktansicht</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Model Viewer -->
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    model-viewer {
+      width: 100%;
+      height: 70vh;
+      background: #fff;
+    }
+    .hint {
+      margin-top: 15px;
+      color: #555;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Produkt in 3D & AR ansehen</h1>
+
+  <model-viewer
+    src="ak0918.glb"
+    ios-src="ak0918.usdz"
+    ar
+    ar-modes="scene-viewer quick-look webxr"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1">
+  </model-viewer>
+
+  <p class="hint">
+    👉 Am Smartphone auf „AR“ tippen, um das Produkt im Raum zu platzieren.
+  </p>
+
+</body>
+</html>
