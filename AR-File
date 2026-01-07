@@ -36,8 +36,8 @@
   <h1>Produkt in 3D & AR ansehen</h1>
 
   <model-viewer
-    src="ak0918.glb"
-    ios-src="ak0918.usdz"
+    src="Android.glb"
+    ios-src="Iphone.usdz"
     ar
     ar-modes="scene-viewer quick-look webxr"
     camera-controls
