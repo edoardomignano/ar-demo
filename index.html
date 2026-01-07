@@ -2,8 +2,13 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AR & 3D Produktdemo</title>
+  <title>Produkt in AR & 3D erleben</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Model Viewer (für 3D im Browser) -->
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
 
   <style>
     body {
@@ -14,99 +19,117 @@
       text-align: center;
     }
 
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    }
-
     h1 {
-      margin-top: 0;
+      margin-bottom: 10px;
     }
 
-    .info {
-      text-align: left;
-      margin: 25px 0;
-      font-size: 15px;
+    p {
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 20px;
       line-height: 1.5;
     }
 
-    .buttons a {
-      display: block;
-      margin: 15px 0;
-      padding: 14px 20px;
-      font-size: 16px;
-      text-decoration: none;
-      color: #ffffff;
+    .info {
+      max-width: 700px;
+      margin: 30px auto;
+      text-align: left;
+      background: #ffffff;
+      padding: 20px;
       border-radius: 8px;
     }
 
-    .iphone {
-      background: #000000;
+    .buttons {
+      max-width: 700px;
+      margin: 30px auto;
     }
 
-    .android {
-      background: #3ddc84;
-      color: #000;
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      margin: 12px 0;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      color: #fff;
       font-weight: bold;
     }
 
-    .desktop {
-      background: #555555;
+    .btn-iphone {
+      background: #000;
+    }
+
+    .btn-android {
+      background: #4CAF50;
+    }
+
+    .btn-desktop {
+      background: #333;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 400px;
+      margin-top: 40px;
+      background: #fff;
+      border-radius: 10px;
     }
 
     .hint {
-      margin-top: 25px;
-      font-size: 13px;
-      color: #666;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <h1>Produkt in AR & 3D erleben</h1>
 
-    <h1>AR Demo läuft ✅</h1>
+  <p>
+    Wählen Sie Ihr Gerät und erleben Sie das Produkt interaktiv –
+    per Augmented Reality auf dem Smartphone oder als drehbares 3D-Modell im Browser.
+  </p>
 
-    <p><strong>Wähle dein Gerät:</strong></p>
+  <div class="info">
+    <strong>📱 Smartphone (iPhone & Android)</strong><br>
+    AR-Ansicht im realen Raum oder 3D-Ansicht per Touch – ganz ohne App.
+    <br><br>
+    <strong>💻 Desktop (Windows & Mac)</strong><br>
+    Interaktive 3D-Ansicht im Browser. Produkt mit Maus frei drehen und von allen Seiten betrachten.
+  </div>
 
-    <div class="info">
-      <p>
-        <strong>📱 Augmented Reality (Smartphone):</strong><br>
-        Für iPhone und Android. Das Produkt wird maßstabsgetreu direkt im Raum
-        platziert – ganz ohne App.
-      </p>
+  <div class="buttons">
+    <a class="btn btn-iphone" href="Iphone.usdz">
+      📱 iPhone – AR & 3D öffnen
+    </a>
 
-      <p>
-        <strong>💻 Desktop (Windows & Mac):</strong><br>
-        Interaktive 3D-Ansicht im Browser. Produkt frei drehen und von allen
-        Seiten betrachten.
-      </p>
-    </div>
+    <a class="btn btn-android" href="Android.glb">
+      🤖 Android – AR & 3D öffnen
+    </a>
 
-    <div class="buttons">
-      <a class="iphone" href="Iphone.usdz">
-        📱 iPhone – AR öffnen
-      </a>
+    <a class="btn btn-desktop" href="#viewer">
+      💻 Windows & Mac – 3D ansehen
+    </a>
+  </div>
 
-      <a class="android" href="Android.glb">
-        🤖 Android – AR / 3D öffnen
-      </a>
+  <!-- 3D Viewer für Desktop -->
+  <model-viewer
+    id="viewer"
+    src="Android.glb"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1">
+  </model-viewer>
 
-      <a class="desktop" href="Android.glb">
-        💻 Windows & Mac – 3D ansehen
-      </a>
-    </div>
-
-    <div class="hint">
-      Tipp: AR funktioniert am besten direkt auf dem Smartphone.
-    </div>
-
+  <div class="hint">
+    Tipp: Augmented Reality funktioniert am besten direkt auf dem Smartphone.
   </div>
 
 </body>
 </html>
+
